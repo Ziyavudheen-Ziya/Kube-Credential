@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const dbConnect = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://ziyavudheen:ziyavudheen@cluster0.zkekwwj.mongodb.net/kubeCredentils"
+      `${process.env.MONGO_URL}`
     );
 
     console.log("MongoDb is connected successfully");
