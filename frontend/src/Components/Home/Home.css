@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.home-container header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 0;
+}
+
+.home-container main img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.home-container main p {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.home-container main button {
+  text-decoration: none;
+  color: white;
+  background: #ba1a2a;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 20px;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.home-container main button:hover {
+  background: #b02a37;
+}
+
+
+@media (max-width: 500px) {
+  .home-container main img {
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,38 @@
+# verification-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: credential-verification
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: credential-verification
+  template:
+    metadata:
+      labels:
+        app: credential-verification
+    spec:
+      containers:
+      - name: credential-verification
+        image: muhammedziyavudheen/credential-verification-service:latest
+        ports:
+        - containerPort: 2001
+        env:
+        - name: PORT
+          value: "2001"
+        - name: MONGO_URI
+          value: "mongodb+srv://ziyavudheen:ziyavudheen@cluster0.zkekwwj.mongodb.net/kubeCredentils"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: credential-verification-service
+spec:
+  type: NodePort
+  selector:
+    app: credential-verification
+  ports:
+  - port: 2001
+    targetPort: 2001
+    nodePort: 30002

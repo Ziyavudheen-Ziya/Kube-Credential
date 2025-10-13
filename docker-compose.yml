@@ -1,0 +1,28 @@
+
+version: "3"
+
+services:
+  
+  credential-issuance-service:
+    build: ./Backend/credential-issuance-service
+    container_name: credential-issuance-service
+    ports:
+      - "2000:2000"
+    environment:
+      - PORT=2000
+      - MONGO_URI="mongodb+srv://ziyavudheen:ziyavudheen@cluster0.zkekwwj.mongodb.net/kubeCredentils
+
+  credential-verification-service:
+    build: ./Backend/credential-verification-service
+    container_name: credential-verification-service
+    ports:
+      - "2001:2001"
+    environment:
+      - PORT=2001
+      - MONGO_URI="mongodb+srv://ziyavudheen:ziyavudheen@cluster0.zkekwwj.mongodb.net/kubeCredentils  
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+     - "80:80"
